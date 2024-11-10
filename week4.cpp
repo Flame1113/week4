@@ -1,20 +1,28 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 char dig1, dig2, dig3, hyph, dig4, dig5, dig6, dig7;
 int main(){
+    cout << "Student name:" << setw(18) << "Glen Dsouza" << endl;
+    cout << "Student number:" << setw(14) << "900914917" << endl;
+    cout << "Student name:" << setw(24) << "Jordon Marchesano" << endl;
+    cout << "Student number:" << setw(14) << "900536880" << endl;
+    cout << endl << endl;
     int returnVal;
     int verify;
+    void AcknowledgeCall();
     int readDials();
     while (true){
-        cout << "Enter a phone number: (Q to quit) ";
-        //Delete if statement to see code work without Quit Function
-        if (dig1 == 'Q' && dig2 == NULL && dig3 == NULL && dig4 == NULL && dig5 == NULL && dig6 ==NULL && hyph == NULL && dig7 == NULL){
+        cout << "Enter a phone number (Q to quit): ";
+        cin >> dig1;
+        if (dig1 == 'Q'){
             break;
         }
+        cin >> dig2 >> dig3 >> hyph >> dig4 >> dig5 >> dig6 >> dig7;
         verify = readDials();
         switch (verify){
             case -1:
-                cout << "ERROR - An invalid character was entered" << endl << endl;
+                cout << "ERROR - An invalid character was entered" << endl;
                 break;
             case -2:
                 cout << "ERROR - Phone number cannot begin with 0" << endl;
@@ -26,11 +34,15 @@ int main(){
                 cout << "ERROR - Hyphen is not in the correct position" << endl;
                 break;
             case 0:
-                cout << "Phone Number Dialed: " << dig1 << dig2 << dig3 << hyph << dig4 << dig5 << dig6 << dig7 << endl;
+                AcknowledgeCall();
                 break;
         }
         cout << endl;
     }
+    cout << "Press any key to continue...";
+    cin.ignore();
+    cin.get();
+    return 0;
 }
 
 int readDials(){
@@ -38,7 +50,6 @@ int readDials(){
     char thing;
     //Initialize variables and get user input for phone #
     int verif1, verif2, verif3, verif4, verif5, verif6, verif7;
-    cin >> dig1 >> dig2 >> dig3 >> hyph >> dig4 >> dig5 >> dig6 >> dig7;
     verif1 = toDigit(dig1);
     verif2 = toDigit(dig2);
     verif3 = toDigit(dig3);
@@ -120,4 +131,8 @@ int toDigit(char &letter){
 
     }
     return -1;
+}
+
+void AcknowledgeCall(){
+    cout << "Phone Number Dialed: " << dig1 << dig2 << dig3 << hyph << dig4 << dig5 << dig6 << dig7 << endl;
 }
