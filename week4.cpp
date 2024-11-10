@@ -11,7 +11,6 @@ int main(){
     cout << "Student name:" << setw(24) << "Jordon Marchesano" << endl;
     cout << "Student number:" << setw(14) << "900536880" << endl;
     cout << endl << endl;
-    int returnVal;
     int verify;
     while (true){
         cout << "Enter a phone number (Q to quit): ";
@@ -47,7 +46,6 @@ int main(){
 }
 
 int readDials(){
-    char thing;
     //Initialize variables and get user input for phone #
     int verif1, verif2, verif3, verif4, verif5, verif6, verif7;
     verif1 = toDigit(dig1);
