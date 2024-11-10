@@ -2,6 +2,9 @@
 #include <iomanip>
 using namespace std;
 char dig1, dig2, dig3, hyph, dig4, dig5, dig6, dig7;
+void AcknowledgeCall();
+int readDials();
+int toDigit(char &);
 int main(){
     cout << "Student name:" << setw(18) << "Glen Dsouza" << endl;
     cout << "Student number:" << setw(14) << "900914917" << endl;
@@ -10,8 +13,6 @@ int main(){
     cout << endl << endl;
     int returnVal;
     int verify;
-    void AcknowledgeCall();
-    int readDials();
     while (true){
         cout << "Enter a phone number (Q to quit): ";
         cin >> dig1;
@@ -46,7 +47,6 @@ int main(){
 }
 
 int readDials(){
-    int toDigit(char &);
     char thing;
     //Initialize variables and get user input for phone #
     int verif1, verif2, verif3, verif4, verif5, verif6, verif7;
@@ -57,17 +57,17 @@ int readDials(){
     verif5 = toDigit(dig5);
     verif6 = toDigit(dig6);
     verif7 = toDigit(dig7);
-    if (verif1 == -1 || verif2 == -1 || verif3 == -1 || verif4 == -1|| verif5 ==-1 || verif6 == -1 || verif7 == -1){
-        return -1;
-    }
-    if (dig1 == '0'){
-        return -2;
-    }
-    if (dig1 == '5' && dig2 == '5' && dig3 == '5'){
-        return -3;
-    }
     if (hyph != '-'){
         return -4;
+    }
+    else if (verif1 == -1 || verif2 == -1 || verif3 == -1 || verif4 == -1|| verif5 ==-1 || verif6 == -1 || verif7 == -1){
+        return -1;
+    }
+    else if (dig1 == '0'){
+        return -2;
+    }
+    else if (dig1 == '5' && dig2 == '5' && dig3 == '5'){
+        return -3;
     }
     return 0;
 }
